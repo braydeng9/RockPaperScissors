@@ -5,45 +5,71 @@
         var choices = ["Rock","Paper","Scissors"];
         return choices[pick];
     }
+    let ps = 0;
+    let cs = 0;
 
     function playRound(player,computer) {
-        const p = player.toLowerCase()
-        const c = computer.toLowerCase()
-        console.log("Player chose " + p)
-        console.log("Computer chose " + c)
+        const p = player.toLowerCase();
+        const c = computer.toLowerCase();
+        console.log("Player chose " + p);
+        console.log("Computer chose " + c);
+        
+
+
 
         if(p==c){
             return "Tie!"
         }
         if (p=="rock" && c=="scissors") {
-            return "You win! Rock beats Scissors."
             ps++;
+            return "You win! Rock beats Scissors.";
         } else if (p=="rock" && c=="paper") {
-            return "You lose! Paper beats rock."
             cs++;
+            return "You lose! Paper beats rock.";
         } else if (p=="scissors" && c=="rock") {
-            return "You lose! Rock beats Scissors."
             cs++;
+            return "You lose! Rock beats Scissors.";
         } else if (p=="scissors" && c=="paper") {
-            return "You win! Scissors beats Paper"
             ps++;
+            return "You win! Scissors beats Paper";
         } else if (p=="paper" && c=="scissors") {
-            return "You lose! Scissors beats Paper."
             cs++;
+            return "You lose! Scissors beats Paper.";
         } else if (p=="paper" && c=="rock") {
-            return "You win! Paper beats Rock."
-            ps++
+            ps++;
+            return "You win! Paper beats Rock.";
         }
     }
+    
+
+
 
     function game(){
-        var ps = 0
-        var cs = 0
+        for(let i=0; i<4; i++)
+        {
+        let playerSelection = prompt("Rock, paper or scissors?");
+        let computerSelection = computerPlay();
+        
+        console.log(ps);
+        console.log(cs);
+        console.log(playRound(playerSelection,computerSelection));
+        }
 
+    }
 
+    function whoWins(){
+        if(ps>cs) {
+            return "You Win! " + ps + ": " + cs;
+        } else if (cs>ps) {
+            return "You Lose! " + ps + ": " + cs;
+        } else {
+            return "Tie!" + ps +": " + cs;
+        }
     }
     const playerSelection = "Rock"
     const computerSelection = computerPlay();
 
     console.log(playRound(playerSelection,computerSelection))
+    game();
+    console.log(whoWins())
 </script>
