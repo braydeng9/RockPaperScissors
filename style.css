@@ -1,0 +1,18 @@
+
+div{
+    font-family: Helvetica;
+}
+
+#scoreboard{
+    width:11em;
+    text-align:center;
+}
+#player{
+    float:left;
+    width:6em;
+}
+
+#computer{
+    float:right;
+    width:5em;
+}
