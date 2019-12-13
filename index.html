@@ -12,13 +12,11 @@
         <h1>Scoreboard</h1>
         <div id='player'>
             <p>Player</p>
-            <p>1</p>
-            <p>2</p>
+            <p id='playerscore'>0</p>
         </div>
         <div id='computer'>
             <p>Computer</p>
-            <p>1</p>
-            <p>2</p>
+            <p id='computerscore'>0</p>
         </div>
         
     </div>
@@ -71,18 +69,33 @@
     const computerSelection = computerPlay();
     
     var btns = document.querySelectorAll('#btn');
+    
+    const containerPlayer = document.querySelector('#player');
+    const containerComputer = document.querySelector('#computer');
+    const playerscore = document.createElement('p');
+    const computerscore = document.createElement('p');
+    
+    const childP = document.querySelector('#playerscore');
+    const childC = document.querySelector('#computerscore');
+    
+    btns.forEach((choice) => {
+        choice.addEventListener('click', (e) => {
         
-        btns.forEach((choice) => {
-            choice.addEventListener('click', (e) => {
-            
-            var player = choice.textContent;
-            alert(player);
-            computerPlay();
-            var outcome = playRound(player,computer);
-            console.log(outcome);
-            alert(outcome);
-            });
+        var player = choice.textContent;
+        alert(player);
+        computerPlay();
+        var outcome = playRound(player,computer);
+        console.log(outcome);
+        alert(outcome);
+        alert(ps);
+        playerscore.textContent = ps;
+        computerscore.textContent = cs;
+
+        containerPlayer.replaceChild(playerscore, childP);
+        containerComputer.replaceChild(computerscore, childC);
+        
         });
+    });
 
 
     // function game(){
