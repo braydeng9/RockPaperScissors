@@ -78,22 +78,26 @@
     const childP = document.querySelector('#playerscore');
     const childC = document.querySelector('#computerscore');
     
+    const length = 5
     btns.forEach((choice) => {
         choice.addEventListener('click', (e) => {
-        
-        var player = choice.textContent;
-        alert(player);
-        computerPlay();
-        var outcome = playRound(player,computer);
-        console.log(outcome);
-        alert(outcome);
-        alert(ps);
-        playerscore.textContent = ps;
-        computerscore.textContent = cs;
+            if ((ps<length)&&(cs<length)) {
+                var player = choice.textContent;
+                alert(player);
+                computerPlay();
+                var outcome = playRound(player,computer);
+                console.log(outcome);
+                alert(outcome);
+                playerscore.textContent = ps;
+                computerscore.textContent = cs;
 
-        containerPlayer.replaceChild(playerscore, childP);
-        containerComputer.replaceChild(computerscore, childC);
-        
+                containerPlayer.replaceChild(playerscore, childP);
+                containerComputer.replaceChild(computerscore, childC);
+            } else if (cs>ps){
+                alert('game over, computer wins');
+            } else {
+                alert('game over, you win');
+            };
         });
     });
 
